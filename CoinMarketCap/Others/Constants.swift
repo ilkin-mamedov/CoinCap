@@ -1,7 +1,7 @@
 import Foundation
 
 struct Constants {
-    public static let API_KEY = ""
+    public static let API_KEY = "ed247186-1db4-4771-a3a3-36f312cbcc8c"
     
     public static let BASE_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency"
     
