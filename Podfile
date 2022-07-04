@@ -1,8 +1,8 @@
-target 'CoinMarketCap' do
+target 'CoinCap' do
   use_frameworks!
 
   pod 'Alamofire'
-  pod 'SDWebImage'
   pod 'SPAlert'
+  pod 'RealmSwift'
 
 end
