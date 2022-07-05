@@ -179,6 +179,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             if safeCoin.getRoundedPercent() < 0 {
                 cell.percentLabel.textColor = .systemRed
                 cell.percentLabel.text = "\(safeCoin.getRoundedPercent())%"
+            } else if safeCoin.getRoundedPercent() == 0 {
+                cell.percentLabel.textColor = .label
+                cell.percentLabel.text = "\(safeCoin.getRoundedPercent())%"
             } else {
                 cell.percentLabel.textColor = .systemGreen
                 cell.percentLabel.text = "+\(safeCoin.getRoundedPercent())%"
