@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gJL-t8-RRY">
-                        <rect key="frame" x="16" y="8" width="75.5" height="34"/>
+                        <rect key="frame" x="16" y="8" width="115.5" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-0d-Yu9">
                                 <rect key="frame" x="0.0" y="0.0" width="7.5" height="34"/>
@@ -25,8 +25,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btc" translatesAutoresizingMaskIntoConstraints="NO" id="cFi-DY-twL">
+                                <rect key="frame" x="15.5" y="0.0" width="32" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="mwe-yJ-AUX"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z0s-kL-NXz">
-                                <rect key="frame" x="15.5" y="0.0" width="60" height="34"/>
+                                <rect key="frame" x="55.5" y="0.0" width="60" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr5-pa-rBA">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="17"/>
@@ -73,6 +79,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="coinImageView" destination="cFi-DY-twL" id="Ix0-f4-aOW"/>
                 <outlet property="nameLabel" destination="zr5-pa-rBA" id="AzY-8l-9IV"/>
                 <outlet property="percentLabel" destination="LRX-ry-Szm" id="FNd-G2-aU3"/>
                 <outlet property="priceLabel" destination="qlP-kd-1o4" id="hNx-U9-SQ9"/>
@@ -82,4 +89,7 @@
             <point key="canvasLocation" x="139" y="96"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="btc" width="128" height="128"/>
+    </resources>
 </document>

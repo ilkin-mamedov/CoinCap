@@ -1,5 +1,4 @@
 import UIKit
-import SPAlert
 
 class AddViewController: UIViewController {
     
@@ -46,6 +45,14 @@ extension AddViewController: UISearchControllerDelegate, UISearchResultsUpdating
             guard let name = asset.name else { return false }
             return name.lowercased().contains(text.lowercased())
         }
+        
+        if filteredCoins.isEmpty {
+            filteredCoins = coins.filter { asset in
+                guard let symbol = asset.symbol else { return false }
+                return symbol.lowercased().contains(text.lowercased())
+            }
+        }
+        
         tableView.reloadData()
     }
 }
@@ -80,6 +87,7 @@ extension AddViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let safeCoin = coin {
+            cell.coinImageView.isHidden = true
             cell.rankLabel.text = "\(safeCoin.rank ?? "Unknown")"
             cell.nameLabel.text = "\(safeCoin.name ?? "Unknown")"
             cell.symbolLabel.text = "\(safeCoin.symbol ?? "Unknown")"
@@ -92,14 +100,20 @@ extension AddViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchController.isActive && !searchController.searchBar.text!.isEmpty {
-            assetsManager.add(by: filteredCoins[indexPath.row].id ?? "")
-            dismiss(animated: true)
+            if !assetsManager.isAlreadyExists(by: filteredCoins[indexPath.row].id ?? "") {
+                assetsManager.add(by: filteredCoins[indexPath.row].id ?? "")
+                dismiss(animated: true)
+                dismiss(animated: true)
+            } else {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
         } else {
-            assetsManager.add(by: coins[indexPath.row].id ?? "")
+            if !assetsManager.isAlreadyExists(by: coins[indexPath.row].id ?? "") {
+                assetsManager.add(by: coins[indexPath.row].id ?? "")
+                dismiss(animated: true)
+            } else {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
         }
-        tableView.deselectRow(at: indexPath, animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name("loadCoins"), object: nil)
-        dismiss(animated: true)
-        SPAlert.present(title: "Added", preset: .done)
     }
 }

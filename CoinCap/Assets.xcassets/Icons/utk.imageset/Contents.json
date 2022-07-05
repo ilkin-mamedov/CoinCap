@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "utk.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

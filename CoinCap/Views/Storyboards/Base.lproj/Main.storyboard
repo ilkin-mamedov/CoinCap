@@ -17,18 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3r-qg-f4r">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3r-qg-f4r">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh.. It's empty here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQv-Wl-HMz">
+                                <rect key="frame" x="68.5" y="430" width="277" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="m3r-qg-f4r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5MH-H5-opS"/>
                             <constraint firstItem="m3r-qg-f4r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E7E-oi-XZa"/>
+                            <constraint firstItem="OQv-Wl-HMz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LUr-oU-mcU"/>
                             <constraint firstAttribute="bottom" secondItem="m3r-qg-f4r" secondAttribute="bottom" id="OKi-av-Rgp"/>
                             <constraint firstItem="m3r-qg-f4r" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kbA-d1-xjY"/>
+                            <constraint firstItem="OQv-Wl-HMz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r1a-5Z-6et"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WTE-DF-1lv">
@@ -40,6 +48,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyLabel" destination="OQv-Wl-HMz" id="AFe-DV-vwF"/>
                         <outlet property="tableView" destination="m3r-qg-f4r" id="Uo2-RE-HqV"/>
                     </connections>
                 </viewController>
@@ -55,7 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NoC-hm-8Dg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NoC-hm-8Dg">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -125,7 +134,7 @@
     </scenes>
     <resources>
         <namedColor name="AccentColor">
-            <color red="0.094117647058823528" green="0.77647058823529413" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.093999996781349182" green="0.77600002288818359" blue="0.51399999856948853" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

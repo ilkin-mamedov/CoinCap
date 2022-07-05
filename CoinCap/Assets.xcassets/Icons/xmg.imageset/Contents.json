@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "xmg.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

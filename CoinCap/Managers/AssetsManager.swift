@@ -1,6 +1,7 @@
 import Foundation
 import Alamofire
 import RealmSwift
+import SPAlert
 
 protocol AssetsManagerDelegate {
     func didUpdateAssets(_ assetsManager: AssetsManager, _ assets: Assets)
@@ -10,7 +11,6 @@ protocol AssetsManagerDelegate {
 struct AssetsManager {
     
     var delegate: AssetsManagerDelegate?
-    
     let realm = try! Realm()
     
     func fetchAssets() {
@@ -50,9 +50,21 @@ struct AssetsManager {
                 let coin = CoinObject()
                 coin.id = id
                 realm.add(coin)
+                NotificationCenter.default.post(name: NSNotification.Name("loadCoins"), object: nil)
+                SPAlert.present(title: "Added", preset: .done)
             }
         } catch {
             print(error)
         }
+    }
+    
+    
+    func isAlreadyExists(by id: String) -> Bool{
+        for coin in realm.objects(CoinObject.self) {
+            if coin.id == id {
+                return true
+            }
+        }
+        return false
     }
 }

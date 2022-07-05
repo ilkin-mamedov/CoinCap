@@ -2,6 +2,7 @@ import UIKit
 
 class CoinTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var coinImageView: UIImageView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!

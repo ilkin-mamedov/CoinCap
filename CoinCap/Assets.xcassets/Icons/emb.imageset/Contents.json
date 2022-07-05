@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "emb.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

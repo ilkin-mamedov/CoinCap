@@ -1,5 +1,6 @@
 import Foundation
 import Alamofire
+import RealmSwift
 
 protocol AssetManagerDelegate {
     func didUpdateAsset(_ assetManager: AssetManager, _ asset: Asset)
@@ -9,6 +10,7 @@ protocol AssetManagerDelegate {
 struct AssetManager {
     
     var delegate: AssetManagerDelegate?
+    let realm = try! Realm()
     
     func fetchAsset(by id: String) {
         performRequest(with: "https://api.coincap.io/v2/assets/\(id)?api=7c43-Kis93RZINMxgTTQkQ1jLINrJXhU")
@@ -38,6 +40,18 @@ struct AssetManager {
         } catch {
             delegate?.didFailWithError(error)
             return nil
+        }
+    }
+    
+    func delete(at indexPath: IndexPath) {
+        let coinObjects = realm.objects(CoinObject.self)
+        
+        do {
+            try self.realm.write {
+                self.realm.delete(coinObjects[indexPath.row])
+            }
+        } catch {
+            print(error)
         }
     }
 }

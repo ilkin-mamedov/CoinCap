@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "klown.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

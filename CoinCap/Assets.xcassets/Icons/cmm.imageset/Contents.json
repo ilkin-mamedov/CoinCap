@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "cmm.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
