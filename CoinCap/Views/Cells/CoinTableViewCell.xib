@@ -16,32 +16,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-0d-Yu9">
+                        <rect key="frame" x="16" y="8" width="8" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gJL-t8-RRY">
-                        <rect key="frame" x="16" y="8" width="115.5" height="34"/>
+                        <rect key="frame" x="48" y="8" width="100" height="34"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-0d-Yu9">
-                                <rect key="frame" x="0.0" y="0.0" width="7.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btc" translatesAutoresizingMaskIntoConstraints="NO" id="cFi-DY-twL">
-                                <rect key="frame" x="15.5" y="0.0" width="32" height="34"/>
+                                <rect key="frame" x="0.0" y="0.0" width="32" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="mwe-yJ-AUX"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z0s-kL-NXz">
-                                <rect key="frame" x="55.5" y="0.0" width="60" height="34"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Z0s-kL-NXz">
+                                <rect key="frame" x="40" y="0.0" width="60" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr5-pa-rBA">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="19"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yg-rT-Ucn">
-                                        <rect key="frame" x="0.0" y="17" width="60" height="17"/>
+                                        <rect key="frame" x="0.0" y="19" width="60" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -69,11 +69,14 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="K2d-0d-Yu9" secondAttribute="bottom" constant="8" id="Fq6-M7-BBn"/>
                     <constraint firstItem="gJL-t8-RRY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="T5V-Xz-fQG"/>
                     <constraint firstItem="xRB-kk-T4U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="iVa-RW-ywG"/>
-                    <constraint firstItem="gJL-t8-RRY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kw2-FO-MKJ"/>
+                    <constraint firstItem="gJL-t8-RRY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="48" id="kw2-FO-MKJ"/>
                     <constraint firstAttribute="bottom" secondItem="gJL-t8-RRY" secondAttribute="bottom" constant="8" id="ncw-kb-CK8"/>
+                    <constraint firstItem="K2d-0d-Yu9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="szc-xr-HQm"/>
                     <constraint firstAttribute="trailing" secondItem="xRB-kk-T4U" secondAttribute="trailing" constant="16" id="tmM-SY-t64"/>
+                    <constraint firstItem="K2d-0d-Yu9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="yTZ-oI-ZlX"/>
                     <constraint firstAttribute="bottom" secondItem="xRB-kk-T4U" secondAttribute="bottom" constant="8" id="z2w-bD-W91"/>
                 </constraints>
             </tableViewCellContentView>

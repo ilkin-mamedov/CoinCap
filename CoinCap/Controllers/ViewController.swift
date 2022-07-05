@@ -42,6 +42,12 @@ class ViewController: UIViewController {
     var assetManager = AssetManager()
     let realm = try! Realm()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadCoins(notification: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadCoins(notification:)), name: NSNotification.Name(rawValue: "loadCoins"), object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,9 +67,6 @@ class ViewController: UIViewController {
         tableView.rowHeight = 50
         
         assetManager.delegate = self
-        
-        loadCoins(notification: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(loadCoins(notification:)), name: NSNotification.Name(rawValue: "loadCoins"), object: nil)
     }
     
     @objc func loadCoins(notification: NSNotification?) {
@@ -87,6 +90,7 @@ extension ViewController: UISearchControllerDelegate, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
+        
         filteredCoins = coins.filter { asset in
             guard let name = asset.name else { return false }
             return name.lowercased().contains(text.lowercased())

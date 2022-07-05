@@ -59,7 +59,7 @@ struct AssetsManager {
     }
     
     
-    func isAlreadyExists(by id: String) -> Bool{
+    func isAlreadyExists(by id: String) -> Bool {
         for coin in realm.objects(CoinObject.self) {
             if coin.id == id {
                 return true

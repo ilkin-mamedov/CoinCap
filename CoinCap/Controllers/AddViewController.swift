@@ -41,6 +41,7 @@ extension AddViewController: UISearchControllerDelegate, UISearchResultsUpdating
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
+        
         filteredCoins = coins.filter { asset in
             guard let name = asset.name else { return false }
             return name.lowercased().contains(text.lowercased())
@@ -87,7 +88,29 @@ extension AddViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let safeCoin = coin {
-            cell.coinImageView.isHidden = true
+            
+            if assetsManager.isAlreadyExists(by: safeCoin.id ?? "") {
+                if UIImage(named: "\(safeCoin.symbol?.lowercased() ?? "")") == nil {
+                    cell.coinImageView.image = imageMonochrome(UIImage(named: "coin")!)
+                } else {
+                    cell.coinImageView.image = imageMonochrome(UIImage(named: "\(safeCoin.symbol?.lowercased() ?? "")")!)
+                }
+                
+                cell.rankLabel.textColor = .gray
+                cell.nameLabel.textColor = .gray
+                cell.symbolLabel.textColor = .gray
+            } else {
+                if UIImage(named: "\(safeCoin.symbol?.lowercased() ?? "")") == nil {
+                    cell.coinImageView.image = UIImage(named: "coin")
+                } else {
+                    cell.coinImageView.image = UIImage(named: "\(safeCoin.symbol?.lowercased() ?? "")")
+                }
+                
+                cell.rankLabel.textColor = .label
+                cell.nameLabel.textColor = .label
+                cell.symbolLabel.textColor = .label
+            }
+            
             cell.rankLabel.text = "\(safeCoin.rank ?? "Unknown")"
             cell.nameLabel.text = "\(safeCoin.name ?? "Unknown")"
             cell.symbolLabel.text = "\(safeCoin.symbol ?? "Unknown")"
@@ -114,6 +137,28 @@ extension AddViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 tableView.deselectRow(at: indexPath, animated: true)
             }
+        }
+    }
+    
+    func imageMonochrome(_ image: UIImage) -> UIImage? {
+        guard let currentCGImage = image.cgImage else { return nil }
+        let currentCIImage = CIImage(cgImage: currentCGImage)
+
+        let filter = CIFilter(name: "CIColorMonochrome")
+        filter?.setValue(currentCIImage, forKey: "inputImage")
+
+        filter?.setValue(CIColor(red: 0.7, green: 0.7, blue: 0.7), forKey: "inputColor")
+
+        filter?.setValue(1.0, forKey: "inputIntensity")
+        guard let outputImage = filter?.outputImage else { return nil }
+
+        let context = CIContext()
+
+        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
+            let processedImage = UIImage(cgImage: cgimg)
+            return processedImage
+        } else {
+            return nil
         }
     }
 }
